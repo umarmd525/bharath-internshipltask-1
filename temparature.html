@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    .converter {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .input-label {
+      font-weight: bold;
+      color: #555;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .convert-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    .convert-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <div class="converter">
+    <label class="input-label">Temperature in Celsius:</label>
+    <input type="text" id="celsiusInput" class="input-field">
+    <div class="result" id="result"></div>
+    <button onclick="convertTemperature('fahrenheit')" class="convert-button">Convert to Fahrenheit</button>
+    <button onclick="convertTemperature('kelvin')" class="convert-button">Convert to Kelvin</button>
+  </div>
+
+  <script>
+    function convertTemperature(unit) {
+      var celsius = document.getElementById("celsiusInput").value;
+      var resultElement = document.getElementById("result");
+      var resultText = "";
+      
+      if (unit === "fahrenheit") {
+        var fahrenheit = (celsius * 9/5) + 32;
+        resultText = celsius + "°C = " + fahrenheit + "°F";
+      } else if (unit === "kelvin") {
+        var kelvin = parseFloat(celsius) + 273.15;
+        resultText = celsius + "°C = " + kelvin + "K";
+      }
+      
+      resultElement.innerHTML = resultText;
+    }
+  </script>
+</body>
+</html>
+
